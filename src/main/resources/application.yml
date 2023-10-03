@@ -1,0 +1,33 @@
+spring:
+  config:
+    import:
+      - classpath:/application-mail.yml
+  h2:
+    console:
+      enabled: true
+# 도커로 띄운 mySQL에 jwtpractice 라는 스키마를 만들어주세요
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3310/jwtpractice
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+
+logging:
+  level:
+    root: INFO
+
+jwt:
+#  랜덤 난수
+  secret: c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK
+
+server:
+  port: 8080
